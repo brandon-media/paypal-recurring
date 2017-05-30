@@ -2,7 +2,7 @@ module PayPal
   module Recurring
     module Utils
       def convert_to_time(string)
-        DateTime.strptime(string, "%H:%M:%S %b %e, %Y %Z").new_offset(0)
+        DateTime.strptime(string, "%H:%M:%S %b %e, %Y %Z").new_offset(DateTime.now.offset)
       end
 
       def mapping(options = {})
