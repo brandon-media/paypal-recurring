@@ -66,7 +66,7 @@ module PayPal
       end
 
       def next_payment_date
-        self.class.convert_to_time(params[:next_payment_date]) if params[:next_payment_date]
+        self.class.convert_to_time(params[:next_payment_date]).new_offset(DateTime.current.offset) if params[:next_payment_date]
       end
 
       def paid_at
